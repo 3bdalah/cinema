@@ -22,6 +22,7 @@
             <p><strong>Tags:</strong> <span class="catgorey badge rounded-pill text-bg-warning mx-1 p-2" *ngFor="let category of movieAllDetailes.genres">
                 {{category.name}}
             </span></p>
+            <div class="link-website "><a class="badge text-bg-secondary p-2" href="{{movieAllDetailes.homepage}}">website Link <i class="fa fa-link"></i></a> </div>
             <p><strong>Duration:</strong> {{movieAllDetailes.runtime }}</p>
             <p><strong>Language:</strong> <span class="badge text-bg-info mx-1 p-1" *ngFor="let lang of movieAllDetailes.spoken_languages">
                 {{lang.name}}
