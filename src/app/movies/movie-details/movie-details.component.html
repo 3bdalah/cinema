@@ -1,4 +1,58 @@
-<p>movie-details works!</p>
-<div>
-    <h1>{{movieAllDetailes.title}}</h1>
-</div>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Section: Movie Poster -->
+        <div class="col-md-3">
+            <img [src]="'https://image.tmdb.org/t/p/original/' + movieAllDetailes.poster_path" alt="Movie Poster" class="movie-poster">
+        </div>
+
+        <!-- Right Section: Movie Details -->
+        <div class="col-md-8">
+            <h1>Movie Title</h1>
+            <p><strong>Release Date:</strong> {{movieAllDetailes.release_date | date}}</p>
+
+            <p><div class="ratings">
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star"></i>
+            </div>
+       
+            <p class="description-movie"> {{movieAllDetailes.overview}}</p>
+            <p><strong>Tags:</strong> <span class="catgorey badge rounded-pill text-bg-warning mx-1 p-2" *ngFor="let category of movieAllDetailes.genres">
+                {{category.name}}
+            </span></p>
+            <div class="link-website "><a class="badge text-bg-secondary p-2" href="{{movieAllDetailes.homepage}}">website Link <i class="fa fa-link"></i></a> </div>
+            <p><strong>Duration:</strong> {{movieAllDetailes.runtime }}</p>
+            <p><strong>Language:</strong> <span class="badge text-bg-info mx-1 p-1" *ngFor="let lang of movieAllDetailes.spoken_languages">
+                {{lang.name}}
+            </span></p>
+            <p class="productions"><span   *ngFor="let production of movieAllDetailes.production_companies">
+           
+              <div class="box-logo-img">  <img   *ngIf="production.logo_path;" [src]="'https://image.tmdb.org/t/p/original/' +  production.logo_path" alt="Movie Poster"/></div>
+            </span></p>
+        </div>
+    </div>
+
+    <!-- Bottom Section: Recommendations -->
+    <div class="row mt-4">
+        <div class="col">
+            <h2>Recommendations</h2>
+            <div class="recommendations-movies">
+                <div class="row">
+                    <div class="col-lg-4" *ngFor="let movieRecommanded of moviesRecommendation; let index = index">
+                        <app-movie-card [movie]="movieRecommanded" *ngIf="index < 6"></app-movie-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+
+
+
+
+<!-- <img [src]="{{'https://image.tmdb.org/t/p/original/' + movieAllDetailes.poster}}" -->
