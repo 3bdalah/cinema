@@ -7,6 +7,9 @@
             <div class="input-group-append mx-2"><span></span>
                 <button class="btn btn-primary" type="button" (click)="sendResultToService(movieName)">Search</button>
             </div>
+            <div class="input-group-append mx-2" *ngIf="searchFlag"><span></span>
+                <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+            </div>
         </div>
     </div>
 </div>

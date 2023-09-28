@@ -4,7 +4,7 @@
     <ng-container *ngIf="myresult && myresult.length > 0; else showAllMovies">
       <!-- Display search results -->
       <div class="movies col-lg-3" *ngFor="let movieDataformList of myresult">
-        <app-movie-card [movie]="movieDataformList"></app-movie-card>
+        <app-movie-card [movie]="movieDataformList" ></app-movie-card>
       </div>
     </ng-container>
 

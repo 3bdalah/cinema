@@ -12,7 +12,6 @@ export class MoviesListComponent {
 
   myresult!:any
   receivedData1:any =''
- 
   listMovies: MoviesInterface[] = [];
   fullyDataMovies: any = [];
   constructor(private moviesServ: MoviesService, private results:SearchService) {

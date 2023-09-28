@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SearchService } from '../search.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { SearchService } from '../search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+ searchFlag:boolean=false;
   movieName:string='';
   myresult!:any;
 
@@ -14,9 +15,15 @@ constructor(private search: SearchService){}
 
 
 
+reset(){
+  this.searchFlag=false
+  this.myresult=[]
+  this.search.setSearchResults(this.myresult)
+}
+
 sendResultToService(movieName:string) {
     // this.dataEvent.emit(movieName);
-    
+    this.searchFlag=true
     this.movieName=this.movieName.toLowerCase()
     this.movieName=this.movieName.trim()
     console.log('movie name"befor" in child: ',movieName)
