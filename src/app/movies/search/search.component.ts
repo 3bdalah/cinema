@@ -17,6 +17,7 @@ constructor(private search: SearchService){}
 
 reset(){
   this.searchFlag=false
+  this.movieName=''
   this.myresult=[]
   this.search.setSearchResults(this.myresult)
 }
