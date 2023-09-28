@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output} from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchService } from '../search.service';
 
 @Component({
@@ -7,30 +7,33 @@ import { SearchService } from '../search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  @Output() dataEvent = new EventEmitter<string>();
-  movieName!:string;
+  movieName:string='';
   myresult!:any;
 
 constructor(private search: SearchService){}
 
 
- 
 
-  emitData() {
-    this.dataEvent.emit(this.movieName);
+sendResultToService(movieName:string) {
+    // this.dataEvent.emit(movieName);
+    
+    this.movieName=this.movieName.toLowerCase()
+    this.movieName=this.movieName.trim()
+    console.log('movie name"befor" in child: ',movieName)
+    this. search.getSearchResults(this.movieName).subscribe((result)=>{
+    this.myresult=result
+    this.search.setSearchResults(this.myresult)
+    console.log('search results in child:  ',this.myresult)
+
+
+    console.log('movie name in child: ',movieName)
   }
 
 
 
-// this.movieName=this.movieName.toLowerCase().trim()
-// this. search.getSearchResults(this.movieName).subscribe((result)=>{
-// this.myresult=result
-// this.search.setSearchResults(this.myresult)
-// console.log('search results:  ',this.myresult)
-
 // })
 
 
-
+)}
 
 }
