@@ -1,1 +1,12 @@
-<p>search works!</p>
+<div class="container mt-5">
+    <div class="custom-section">
+        <h2 class="mb-3">Welcome to our movies app</h2>
+        <p>Millions of movies</p>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="movieName" type="text" class="form-control" placeholder="Search for movies" aria-label="Search for movies" aria-describedby="basic-addon2">
+            <div class="input-group-append mx-2">
+                <button class="btn btn-primary" type="button" (click)="emitData()">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
