@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { MoviesModule } from './movies/movies.module';
+
 import { WatchListModule } from './watch-list/watch-list.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

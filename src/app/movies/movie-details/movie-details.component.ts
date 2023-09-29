@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { MoviesService } from '../movies.service';
 import { MoviesInterface } from '../movies-interface';
+
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { WishListService } from 'src/app/watch-list/wish-list.service';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -15,9 +18,9 @@ export class MovieDetailsComponent {
   moviesRecommendation!: MoviesInterface[];
   constructor(
     private fullyDataMovie: MoviesService,
+
     private _ActivatRoute: ActivatedRoute,
-    private _WishListService: WishListService,
-    private router: Router
+    private _WishListService: WishListService
   ) {}
   ngOnInit() {
     this._ActivatRoute.params.subscribe((params) => {
@@ -34,10 +37,10 @@ export class MovieDetailsComponent {
           this.moviesRecommendation = moviesRec.results;
         });
     });
+
   }
   handleAddMovieToWishList(movieData: MoviesInterface) {
     this._WishListService.toggleMovieToWishList(movieData);
-    this.router.navigate(['watch-list']);
   }
 }
 
