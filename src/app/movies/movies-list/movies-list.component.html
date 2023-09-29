@@ -1,8 +1,19 @@
-<p>movies-list works!</p>
 <div class="container mt-5">
+  
     <div class="row">
         <div class=" movies  col-lg-3" *ngFor="let movieDataformList of listMovies">
           <app-movie-card [movie]="movieDataformList"></app-movie-card>
         </div> 
     </div>
+    
+    <nav aria-label="..." class=" my-5 center">
+      <ul class="pagination">
+       
+        <li class="page-item" *ngFor="let num of pageNumbers" >
+        <span class="page-link" (click)="handlePassNumPage(num+1)">{{num+1}}</span>
+        </li>
+        
+      </ul>
+    </nav>
 </div>
+
