@@ -5,22 +5,22 @@ import { FooterComponent } from './footer/footer.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from '../app-routing.module';
-
-
+import { WatchListModule } from '../watch-list/watch-list.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     PaginationComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
-  imports: [
-    CommonModule,AppRoutingModule
-  ],
-  exports:[HeaderComponent,
+  imports: [CommonModule, AppRoutingModule],
+  exports: [
+    HeaderComponent,
     FooterComponent,
     PaginationComponent,
-    NotFoundComponent]
+    NotFoundComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
