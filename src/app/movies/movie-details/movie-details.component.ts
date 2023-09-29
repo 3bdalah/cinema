@@ -31,5 +31,8 @@ export class MovieDetailsComponent {
           this.moviesRecommendation = moviesRec.results;
         });
     });
+
+
+    
   }
 }

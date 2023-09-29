@@ -14,6 +14,7 @@ export class MoviesListComponent {
   receivedData1:any =''
   listMovies: MoviesInterface[] = [];
   fullyDataMovies: any = [];
+  searchFlag!:boolean;
   constructor(private moviesServ: MoviesService, private results:SearchService) {
 
 
@@ -25,7 +26,7 @@ export class MoviesListComponent {
   
   ngOnInit() {
     
-    
+    this.results.setSearchFlag(false)
     this.moviesServ.getAllMovies().subscribe((movie) => {
       console.log('movie', movie.results);
       let moviesTemp = movie;
@@ -33,7 +34,10 @@ export class MoviesListComponent {
     });
     
    
-
+this.results.getSearchFlag().subscribe((flag)=>{
+this.searchFlag=flag
+console.log('searchFlag onInit: ',this.searchFlag)
+})
     
   }
 
@@ -42,22 +46,13 @@ export class MoviesListComponent {
   this.results.getStoredSearchResults().subscribe((movie)=>{
     this.myresult=movie
     this.myresult=this.myresult.results
+
+
+    console.log('searchFlag AfterViewInit: ',this.searchFlag)
     console.log('getStoredSearchResults in Parent: ', this.myresult)
     
     })
 }
-  // ngAfterContentInit(){
-  //   this.results.getSearchResults(this.receivedData1).subscribe((data)=>{
-  //     this.myresult=data
-  //     this.myresult=this.myresult.results
-      
-    
-      
-    
-  //   })
-
-  // }
-
 
 
 }

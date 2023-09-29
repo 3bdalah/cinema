@@ -9,6 +9,7 @@ export class SearchService {
   private api_Key = 'fd1abe0fb535494df40c06c72320b913';
   private movieName!:string
   private searchResults=new BehaviorSubject<string>('');
+  private searchFlag = new BehaviorSubject<boolean>(false)
 
 
 
@@ -29,6 +30,15 @@ this.searchResults.next(newval)
 
 getStoredSearchResults(){
   return this.searchResults.asObservable()
+}
+
+
+
+setSearchFlag(newval:boolean){
+  this.searchFlag.next(newval)
+}
+getSearchFlag(){
+ return this.searchFlag.asObservable()
 }
 
 }
