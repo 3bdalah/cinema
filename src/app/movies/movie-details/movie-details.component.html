@@ -17,7 +17,7 @@
                 <i class="fa fa-star rating-color"></i>
                 <i class="fa fa-star"></i>
             </div>
-       
+            <button class="btn btn-info" (click)="handleAddMovieToWishList(movieAllDetailes)">Add to wish list</button>
             <p class="description-movie"> {{movieAllDetailes.overview}}</p>
             <p><strong>Tags:</strong> <span class="catgorey badge rounded-pill text-bg-warning mx-1 p-2" *ngFor="let category of movieAllDetailes.genres">
                 {{category.name}}
