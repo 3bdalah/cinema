@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { MoviesService } from '../movies.service';
 import { MoviesInterface } from '../movies-interface';
+<<<<<<< HEAD
 import { ActivatedRoute } from '@angular/router';
+=======
+import { ActivatedRoute, Router } from '@angular/router';
+import { WishListService } from 'src/app/watch-list/wish-list.service';
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
 
 @Component({
   selector: 'app-movie-details',
@@ -14,7 +19,13 @@ export class MovieDetailsComponent {
   moviesRecommendation!: MoviesInterface[];
   constructor(
     private fullyDataMovie: MoviesService,
+<<<<<<< HEAD
     private _ActivatRoute: ActivatedRoute
+=======
+    private _ActivatRoute: ActivatedRoute,
+    private _WishListService: WishListService,
+    private router: Router
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
   ) {}
   ngOnInit() {
     this._ActivatRoute.params.subscribe((params) => {
@@ -31,8 +42,24 @@ export class MovieDetailsComponent {
           this.moviesRecommendation = moviesRec.results;
         });
     });
+<<<<<<< HEAD
 
 
     
+=======
+  }
+  handleAddMovieToWishList(movieData: MoviesInterface) {
+    this._WishListService.toggleMovieToWishList(movieData);
+    this.router.navigate(['watch-list']);
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
   }
 }
+
+/**
+ *  private router: Router,
+ *  private wishList: WishListService
+ *  handleAddMovieToWishList(movieData: MoviesInterface) {
+    this.wishList.toggleMovieToWishList(movieData);
+    this.router.navigate(['watch-list']);
+  }
+ */

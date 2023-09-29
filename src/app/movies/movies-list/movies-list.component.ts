@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { MoviesInterface } from '../movies-interface';
 import { MoviesService } from '../movies.service';
+<<<<<<< HEAD
 import { SearchService } from '../search.service';
+=======
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
 
 @Component({
   selector: 'app-movies-list',
@@ -9,7 +12,15 @@ import { SearchService } from '../search.service';
   styleUrls: ['./movies-list.component.css'],
 })
 export class MoviesListComponent {
+  listMovies: MoviesInterface[] = [];
+  fullyDataMovies: any = [];
+  pageNumbers: number[] = [];
+  constructor(private _MoviesService: MoviesService) {}
+  ngOnInit() {
+    this.pageNumbers = new Array(15).fill('').map((item, index) => index);
+    this._MoviesService.getAllMoviesByPagination(1).subscribe((movies) => {
 
+<<<<<<< HEAD
   myresult!:any
   receivedData1:any =''
   listMovies: MoviesInterface[] = [];
@@ -55,4 +66,17 @@ console.log('searchFlag onInit: ',this.searchFlag)
 }
 
 
+=======
+      this.listMovies = movies.results;
+    });
+  }
+
+  handlePassNumPage(numPage: number) {
+    this._MoviesService
+      .getAllMoviesByPagination(numPage)
+      .subscribe((movies) => {
+        this.listMovies = movies.results;
+      });
+  }
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
 }

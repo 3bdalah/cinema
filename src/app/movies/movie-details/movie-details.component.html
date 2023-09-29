@@ -7,7 +7,11 @@
 
         <!-- Right Section: Movie Details -->
         <div class="col-md-8">
+<<<<<<< HEAD
             <h1>{{movieAllDetailes.title}}</h1>
+=======
+            <h1>Movie Title</h1>
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
             <p><strong>Release Date:</strong> {{movieAllDetailes.release_date | date}}</p>
 
             <p><div class="ratings">
@@ -17,7 +21,11 @@
                 <i class="fa fa-star rating-color"></i>
                 <i class="fa fa-star"></i>
             </div>
+<<<<<<< HEAD
        
+=======
+            <button class="btn btn-info" (click)="handleAddMovieToWishList(movieAllDetailes)">Add to wish list</button>
+>>>>>>> 0d7918b71be96c3e507d88e781d9f41aebfa2bb4
             <p class="description-movie"> {{movieAllDetailes.overview}}</p>
             <p><strong>Tags:</strong> <span class="catgorey badge rounded-pill text-bg-warning mx-1 p-2" *ngFor="let category of movieAllDetailes.genres">
                 {{category.name}}
