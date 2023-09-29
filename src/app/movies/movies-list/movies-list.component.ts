@@ -10,12 +10,21 @@ import { MoviesService } from '../movies.service';
 export class MoviesListComponent {
   listMovies: MoviesInterface[] = [];
   fullyDataMovies: any = [];
-  constructor(private moviesServ: MoviesService) {}
+  pageNumbers: number[] = [];
+  constructor(private _MoviesService: MoviesService) {}
   ngOnInit() {
-    this.moviesServ.getAllMovies().subscribe((movie) => {
-      console.log('movie', movie.results);
-      let moviesTemp = movie;
-      this.listMovies = moviesTemp.results;
+    this.pageNumbers = new Array(15).fill('').map((item, index) => index);
+    this._MoviesService.getAllMoviesByPagination(1).subscribe((movies) => {
+
+      this.listMovies = movies.results;
     });
+  }
+
+  handlePassNumPage(numPage: number) {
+    this._MoviesService
+      .getAllMoviesByPagination(numPage)
+      .subscribe((movies) => {
+        this.listMovies = movies.results;
+      });
   }
 }
