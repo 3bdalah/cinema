@@ -1,0 +1,14 @@
+<div class="carousel-wrapper">
+    <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let movie of moviesList" class="box-slide">
+          <ng-template carouselSlide >
+          <div class="content-card">
+            <div class="overlay-movie"></div>
+            <img class="img-owl" [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path" [alt]="movie.title" [title]="movie.title">
+            <button class="btn btn-secondary btn-open-movie" (click)="openDetailes(movie.id)" >view</button>
+  
+          </div>
+        </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+</div>

@@ -6,6 +6,9 @@ import { SearchComponent } from './search/search.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   declarations: [
     MoviesListComponent,
@@ -13,7 +16,9 @@ import { AppRoutingModule } from '../app-routing.module';
     SearchComponent,
     MovieDetailsComponent,
   ],
-  imports: [CommonModule, AppRoutingModule],
+
+  imports: [CommonModule, AppRoutingModule, FormsModule, SharedModule],
+
   exports: [
     MoviesListComponent,
     MovieCardComponent,
