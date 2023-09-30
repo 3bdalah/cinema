@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { MoviesModule } from './movies/movies.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WatchListModule } from './watch-list/watch-list.module';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,8 @@ import { WatchListModule } from './watch-list/watch-list.module';
     CommonModule,
     MoviesModule,
     WatchListModule,
+    BrowserAnimationsModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
