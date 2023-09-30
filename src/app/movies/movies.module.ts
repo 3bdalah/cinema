@@ -7,6 +7,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     MovieDetailsComponent,
   ],
 
-  imports: [CommonModule, AppRoutingModule, FormsModule],
+  imports: [CommonModule, AppRoutingModule, FormsModule, SharedModule],
 
   exports: [
     MoviesListComponent,

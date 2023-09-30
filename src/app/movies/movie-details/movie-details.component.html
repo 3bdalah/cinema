@@ -83,7 +83,7 @@
       <h2>Recommendations</h2>
       <div class="recommendations-movies">
         <div class="row">
-          <div
+          <!-- <div
             class="col-lg-4"
             *ngFor="
               let movieRecommanded of moviesRecommendation;
@@ -95,6 +95,10 @@
               *ngIf="index < 6"
             ></app-movie-card>
           </div>
+         -->
+         <div class="box-carousel">
+          <app-carousel [moviesList]="moviesRecommendation"></app-carousel>
+         </div>
         </div>
       </div>
     </div>
