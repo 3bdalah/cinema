@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesModule } from './movies/movies.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WatchListModule } from './watch-list/watch-list.module';
+import { AuthModule } from './auth/auth.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
@@ -20,8 +21,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CommonModule,
     MoviesModule,
     WatchListModule,
+    AuthModule,
     BrowserAnimationsModule,
-    CarouselModule,
+    CarouselModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

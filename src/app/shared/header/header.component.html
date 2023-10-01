@@ -6,42 +6,55 @@
         
 
         <!-- Watchlist Link -->
-        <ul class="navbar-nav ml-auto">
-            <div class="dropdown ml-auto">
-                <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    En
-                </button>
-                <div class="dropdown-menu" aria-labelledby="languageDropdown">
-                    <a class="dropdown-item" href="#">En</a>
-                    <a class="dropdown-item" href="#">Fr</a>
-                    <a class="dropdown-item" href="#">Es</a>
-                    <!-- Add more languages as needed -->
+
+      
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <div class="dropdown ml-auto">
+                    <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        En
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="#">En</a>
+                        <a class="dropdown-item" href="#">Fr</a>
+                        <a class="dropdown-item" href="#">Es</a>
+                        <!-- Add more languages as needed -->
+                    </div>
                 </div>
-            </div>
-            <li class="nav-item mx-3">
-                <a class="nav-link" routerLink="watch-list"><i class="fa-solid fa-heart fa-xl mx-1"></i>{{lengthMoviesWishList}} Watchlist</a>
-            </li>
-            <div *ngIf="isLoggedIn; then logged else logOut">
-                <!-- The content below will be displayed if isLoggedIn is true -->
-            </div>
-            
-            <ng-template #logged>
-                <li class="d-flex nav-item">
-                    <img src="../../../assets/profile.jpg" alt="" class="user-profile-img my-1">
-                    <a class="nav-link" href="#">Account</a>
-                    <a class="nav-link underline-bold-link" (click)="logout()" routerLink="/">Logout</a>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" routerLink="watch-list"><i class="fa-solid fa-heart fa-xl mx-1"></i>{{lengthMoviesWishList}} Watchlist</a>
                 </li>
-            </ng-template>
+                <div *ngIf="isLoggedIn; then logged else logOut">
+                    <!-- The content below will be displayed if isLoggedIn is true -->
+                </div>
             
-            <ng-template #logOut>
-                <li class="nav-item">
-                    <a class="nav-link underline-bold-link" routerLink="login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link underline-bold-link" routerLink="signup">Signup</a>
-                </li>
-            </ng-template>
+                <ng-template #logged>
+                    <li class="d-flex nav-item">
+                        <img src="../../../assets/profile.jpg" alt="" class="user-profile-img my-1">
+                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link underline-bold-link" (click)="logout()" routerLink="">Logout</a>
+                    </li>
+                </ng-template>
             
-        </ul>
+                <ng-template #logOut>
+                    <li class="nav-item">
+                        <a class="nav-link underline-bold-link" routerLink="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link underline-bold-link" routerLink="signup">Signup</a>
+                    </li>
+                </ng-template>
+            
+            </ul>
+        </div>
+        <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
     </div>
 </nav>
