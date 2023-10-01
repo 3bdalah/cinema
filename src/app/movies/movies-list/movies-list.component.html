@@ -30,16 +30,15 @@
       </div>
       </ng-template>
     </div>
-    <nav aria-label="..." class=" my-5 center">
+    <!-- refact pagination  -->
+    <nav aria-label="Page navigation example">
       <ul class="pagination">
-       
-        <li class="page-item" *ngFor="let num of pageNumbers" >
-        <span class="page-link" (click)="handlePassNumPage(num+1)">{{num+1}}</span>
-        </li>
-        
+        <li class="page-item"><button [ngClass]="pageNum <=1 ? 'stop-find': ''" class="page-link" [disabled]="pageNum<=1" (click)="handlePageNum(pageNum-1)" href="#">Previous</button></li>
+        <li class="page-item"><a class="page-link active  " >{{pageNum}}</a></li>
+        <li class="page-item"><a class="page-link" >{{pageNum+1}}</a></li>
+        <li class="page-item"><a class="page-link" >{{pageNum+2}}</a></li>
+        <li class="page-item"><button class="page-link"  [ngClass]=" pageNum >= 500 ? 'stop-find' : '' " (click)="handlePageNum(pageNum+1)">Next</button></li>
       </ul>
     </nav>
   </div>
-  
-  
 </div>

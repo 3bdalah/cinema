@@ -10,3 +10,9 @@
 .pagination span{
   cursor:pointer;
 }
+.page-link{
+  cursor: pointer;
+}
+.stop-find{
+  cursor:not-allowed;
+}
