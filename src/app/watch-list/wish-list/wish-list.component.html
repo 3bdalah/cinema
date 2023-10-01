@@ -1,1 +1,31 @@
-<p>wish-list works!</p>
+<section class="wish-list-section wrapper">
+   <div class="container">
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let movie of moviesListContainer">
+          <!-- Each movie card should be within a separate col -->
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path" class="img-fluid rounded-start" alt=" movie.title ">
+                
+                <!-- Use Angular's interpolation to bind the image source and alt text -->
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ movie.title }}</h5>
+                  <!-- Use Angular's interpolation to display the movie name -->
+                  <p class="card-text">{{ movie.overview }}</p>
+                  <!-- Assuming you have a 'description' property for the movie -->
+                  <p class="card-text"><small class="text-body-secondary">Last updated {{ movie.release_date | date}}</small></p>
+                  <!-- Assuming you have a 'lastUpdated' property for the movie -->
+                  <button class="btn watchlist-button" (click)="toggleMovieToWishListFromComp(movie)">
+                    <i class="fa fa-heart"></i> remove from wishlist
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+</section>

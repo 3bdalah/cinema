@@ -3,3 +3,8 @@
     border-radius: 0px; /* Rounded border */
     padding: 20px;
 }
+
+.wrapper {
+    padding-top: 60px !important;
+  }
+  

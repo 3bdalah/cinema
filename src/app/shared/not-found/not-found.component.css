@@ -1,0 +1,19 @@
+.error-container {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.error-code {
+    font-size: 144px;
+    color: #333; /* Dark text color */
+}
+
+.error-message {
+    font-size: 24px;
+    color: #333; /* Dark text color */
+    margin-top: 20px;
+}
+
+.error-link {
+    margin-top: 20px;
+}

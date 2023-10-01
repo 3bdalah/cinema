@@ -5,6 +5,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { SearchComponent } from './search/search.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AppRoutingModule } from '../app-routing.module';
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -14,7 +15,9 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     MovieDetailsComponent,
   ],
-  imports: [CommonModule, AppRoutingModule,FormsModule],
+
+  imports: [CommonModule, AppRoutingModule, FormsModule],
+
   exports: [
     MoviesListComponent,
     MovieCardComponent,

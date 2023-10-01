@@ -1,11 +1,14 @@
-<div class="container mt-5">
+<div class="container mt-5 wrapper">
     <div class="custom-section">
         <h2 class="mb-3">Welcome to our movies app</h2>
         <p>Millions of movies</p>
         <div class="input-group mb-3">
             <input [(ngModel)]="movieName" type="text" class="form-control" placeholder="Search for movies" aria-label="Search for movies" aria-describedby="basic-addon2">
-            <div class="input-group-append mx-2">
-                <button class="btn btn-primary" type="button" (click)="emitData()">Search</button>
+            <div class="input-group-append mx-2" >
+                <button class="btn btn-primary" [disabled]="!movieName" type="button" (click)="sendResultToService(movieName)">Search</button>
+            </div>
+            <div class="input-group-append mx-2" *ngIf="searchFlag">
+                <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
             </div>
         </div>
     </div>
