@@ -1,5 +1,6 @@
 .movie-list{
   background-color:#F2F6FA;
+  padding-bottom:30px;
 }
 .pagination{
     display: flex;

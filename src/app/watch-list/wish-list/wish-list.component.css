@@ -1,4 +1,13 @@
 .wrapper {
-    padding-top: 25px !important;
-  }
-  
+  padding-top: 25px !important;
+}
+
+.wrapper-empty-cart{
+  margin:20px auto;
+  height:300px;
+}
+
+.wrapper-empty-cart img{
+  width: 100%;
+  height: 350px;
+}

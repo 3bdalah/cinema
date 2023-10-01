@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MoviesInterface } from 'src/app/movies/movies-interface';
 import { WishListService } from 'src/app/watch-list/wish-list.service';
 
@@ -10,7 +11,10 @@ import { WishListService } from 'src/app/watch-list/wish-list.service';
 export class WishListComponent {
   moviesListContainer!: MoviesInterface[];
 
-  constructor(private _WishListService: WishListService) {}
+  constructor(
+    private _WishListService: WishListService,
+    private _route: Router
+  ) {}
   ngOnInit() {
     this._WishListService.getAllMoviesAtWishList().subscribe((movie) => {
       console.log('all movies at wish list at ng on init', movie);
@@ -19,5 +23,8 @@ export class WishListComponent {
   }
   toggleMovieToWishListFromComp(movieData: MoviesInterface) {
     this._WishListService.toggleMovieToWishList(movieData);
+  }
+  handleBackToHome() {
+    this._route.navigate(['/']);
   }
 }
