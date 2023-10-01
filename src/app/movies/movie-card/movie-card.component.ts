@@ -7,7 +7,6 @@ import { SearchService } from '../search.service';
 
 import { WishListService } from 'src/app/watch-list/wish-list.service';
 
-
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -19,26 +18,16 @@ export class MovieCardComponent {
   constructor(
     private moviesData: MoviesService,
     private router: Router,
-    private wishList: WishListService, private search:SearchService
+    private wishList: WishListService,
+    private search: SearchService
   ) {}
 
-
   openDetailes(idMovie: number) {
-
     this.router.navigate(['movie', idMovie]);
     this.moviesData.getfullyDataMovie(idMovie);
-    this.search.setSearchFlag(false)
+    this.search.setSearchFlag(false);
   }
   handleAddMovieToWishList(movieData: MoviesInterface) {
     this.wishList.toggleMovieToWishList(movieData);
   }
 }
-
-/**
- *  private router: Router,
- *  private wishList: WishListService
- *  handleAddMovieToWishList(movieData: MoviesInterface) {
-    this.wishList.toggleMovieToWishList(movieData);
-    this.router.navigate(['watch-list']);
-  }
- */

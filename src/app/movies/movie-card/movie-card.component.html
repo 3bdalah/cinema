@@ -1,12 +1,18 @@
-<div class="card" >
+<div class=" card-movie">
+    
     <div (click)="openDetailes(movie.id)" style="cursor: pointer;">
-        <h5 class="card-title">{{movie.title}}</h5>
+        <button class="btn btn-secondary btn-open-movie"  >view</button>
         <div class="box-img">
+            <div class="overlay-movie"></div>
             <img [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path">
         </div>
     </div>
-    <p class="card-text">Rating: {{movie.vote_average}}</p>
-    <p class="card-text">Release Date: {{movie.release_date | date}} September 30, 2023</p>
+    <div class="content-card-movie">
+        <p class="card-title float-left"><span class="title h6">{{movie.title}}</span>
+            <br/><span>{{movie.release_date | date}}</span> </p>
+        <p class="card-text float-left">Rating: {{movie.vote_average}}</p>
+        
+        <span class=" watchlist-button float-right" (click)="handleAddMovieToWishList(movie)"><i class="fa fa-heart"></i> </span>    
 
-    <button class="btn watchlist-button" (click)="handleAddMovieToWishList(movie)"><i class="fa fa-heart"></i></button>
+    </div>    
 </div>
