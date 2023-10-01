@@ -1,0 +1,70 @@
+.signup-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: #f00;
+    font-size: 14px;
+  }
+  
+  .btn-primary {
+    background-color: #ffc107; /* Yellow color */
+    border: none;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ffca2b; /* Slightly lighter yellow on hover */
+  }
+  
+
+  .wrapper {
+    padding-top: 60px !important;
+  }
+  
+/* Add these styles to your component's CSS file or global styles */
+
+.success-card {
+  background-color: #4CAF50; /* Green background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding inside the card */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 10px; /* Spacing from the form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+  text-align: center; /* Center-align the text */
+  font-size: 18px; /* Font size */
+}
+
+/* Styles for error message */
+.error-card {
+  background-color: #b68383; /* Red background color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding inside the card */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 10px; /* Spacing from the form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+  text-align: center; /* Center-align the text */
+  font-size: 18px; /* Font size */
+}
+
+
+  /* ... other styles ... */
+  

@@ -1,1 +1,49 @@
-<p>signup works!</p>
+<div class="wrapper">
+    <div class="container">
+        <h2 class="text-center">Sign Up</h2>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <div *ngIf="signupForm.controls['name'].invalid && signupForm.controls['name'].touched" class="error-message">
+              <div *ngIf="signupForm.controls['name'].hasError('required')">Name is required.</div>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched" class="error-message">
+              <div *ngIf="signupForm.controls['email'].hasError('required')">Email is required.</div>
+              <div *ngIf="signupForm.controls['email'].hasError('email')">Invalid email format.</div>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="error-message">
+              <div *ngIf="signupForm.controls['password'].hasError('required')">Password is required.</div>
+              <div *ngIf="signupForm.controls['password'].hasError('minlength')">Password must be at least 8 characters long.</div>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+            <div *ngIf="signupForm.controls['confirmPassword'].invalid && signupForm.controls['confirmPassword'].touched" class="error-message">
+              <div *ngIf="signupForm.controls['confirmPassword'].hasError('required')">Confirm Password is required.</div>
+              <div *ngIf="signupForm.controls['confirmPassword'].hasError('passwordMismatch')">Passwords do not match.</div>
+            </div>
+          </div>
+    
+          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign Up</button>
+
+        </form>
+        
+      </div>
+      <div *ngIf="successMessage==='success'" class="success-card">Signed Up successfully.</div>
+      <div *ngIf="successMessage==='user exists'" class="error-card">User Already exists. <a routerLink="/login">Login in instead?</a></div>
+    
+    
+</div>

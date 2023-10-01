@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesModule } from './movies/movies.module';
 
 import { WatchListModule } from './watch-list/watch-list.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { WatchListModule } from './watch-list/watch-list.module';
     CommonModule,
     MoviesModule,
     WatchListModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
