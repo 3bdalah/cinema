@@ -1,10 +1,71 @@
-
-.card{
+.card-movie{
+    position: relative;
     margin-top: 20px;
+    overflow: hidden;
+    border-radius:10px ;
+}
+.card-movie .box-img {
+    overflow: hidden;
+    position: relative;
+    /* background-  color: red; */
+}
+.card-movie .overlay-movie{
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.4);
+    width:100%;
+    height:100%;
+    z-index: 1;
+    display: none;
+}
+.card-movie:hover .box-img .overlay-movie{
+    transition: 0.5s ease;
+    display: block;
+}
+
+.card-movie .btn-open-movie{
+ display:none;
+ position: absolute;
+ top:40%;
+ left:35%;
+ z-index: 22;
+ background: transparent;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  text-transform: capitalize;
+}
+.card-movie:hover .btn-open-movie{
+    display: block;
+}
+
+.card-movie img{
+    
+    border-radius:10px ;
+    /* position: absolute; */
+    box-shadow: 1px 1px 3px #efefef , -1px -1px 3px #efefef;
+    width:100%;
+    height:70%;
+}
+.box-img{
+    overflow: hidden;
+}
+
+.content-card-movie{
+    padding-top: 5px;
+    
 }
 .watchlist-button {
     font-size: 24px;
-    color:gray;
+    color:#444;
+    cursor: pointer;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
 }
 .box-img img{
     width:100%;
