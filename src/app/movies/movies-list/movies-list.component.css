@@ -1,5 +1,6 @@
 .movie-list{
   background-color:#F2F6FA;
+  padding-bottom:30px;
 }
 .pagination{
     display: flex;
@@ -8,4 +9,10 @@
 }
 .pagination span{
   cursor:pointer;
+}
+.page-link{
+  cursor: pointer;
+}
+.stop-find{
+  cursor:not-allowed;
 }

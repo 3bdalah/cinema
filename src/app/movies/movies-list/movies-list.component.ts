@@ -16,7 +16,8 @@ export class MoviesListComponent {
   searchFlag!: boolean;
   myresult!: any;
   receivedData1: any = [];
-
+  pageNum: number = 1;
+  total_pages_num!: number;
   constructor(
     private _MoviesService: MoviesService,
     private results: SearchService
@@ -62,7 +63,6 @@ export class MoviesListComponent {
     });
   }
 
-  
   handlePassNumPage(numPage: number) {
     this.results.setSearchFlag(false);
     this._MoviesService
@@ -71,4 +71,16 @@ export class MoviesListComponent {
         this.listMovies = movies.results;
       });
   }
+
+  handlePageNum(pageNumber: number) {
+    this._MoviesService
+      .getAllMoviesByPagination(pageNumber)
+      .subscribe((movie) => {
+        console.log('movies list at pagination data ', movie.total_pages);
+        this.pageNum = movie.page;
+        this.listMovies = movie.results;
+        this.total_pages_num = movie.total_pages;
+      });
+  }
+  handleNext(pageNumber: number) {}
 }
