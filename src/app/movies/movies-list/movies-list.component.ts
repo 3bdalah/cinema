@@ -10,13 +10,18 @@ import { SearchService } from '../search.service';
 })
 export class MoviesListComponent {
   listMovies: MoviesInterface[] = [];
+  // favoritMovies: any[] = [];
   fullyDataMovies: any = [];
   pageNumbers: number[] = [];
   searchFlag!: boolean;
   myresult!: any;
   receivedData1: any = [];
-
-  constructor(private _MoviesService: MoviesService, private results: SearchService) {
+  pageNum: number = 1;
+  total_pages_num!: number;
+  constructor(
+    private _MoviesService: MoviesService,
+    private results: SearchService
+  ) {
     console.log('receivedData1', this.receivedData1);
   }
 
@@ -24,13 +29,9 @@ export class MoviesListComponent {
     this.pageNumbers = new Array(15).fill('').map((item, index) => index);
     this.results.setSearchFlag(false); // Set searchFlag to false initially
     this.loadMovies(); // Load movies based on pagination
-
     this._MoviesService.getAllMoviesByPagination(1).subscribe((movies) => {
-
       this.listMovies = movies.results;
     });
-
-
     this.results.getSearchFlag().subscribe((flag) => {
       this.searchFlag = flag;
       console.log('searchFlag onInit: ', this.searchFlag);
@@ -61,12 +62,25 @@ export class MoviesListComponent {
       this.listMovies = moviesTemp.results;
     });
   }
-  
-  // Function to handle page number changes
+
   handlePassNumPage(numPage: number) {
-    this.results.setSearchFlag(false); // Set searchFlag to false when changing pages
-    this._MoviesService.getAllMoviesByPagination(numPage).subscribe((movies) => {
-      this.listMovies = movies.results;
-    });
+    this.results.setSearchFlag(false);
+    this._MoviesService
+      .getAllMoviesByPagination(numPage)
+      .subscribe((movies) => {
+        this.listMovies = movies.results;
+      });
   }
+
+  handlePageNum(pageNumber: number) {
+    this._MoviesService
+      .getAllMoviesByPagination(pageNumber)
+      .subscribe((movie) => {
+        console.log('movies list at pagination data ', movie.total_pages);
+        this.pageNum = movie.page;
+        this.listMovies = movie.results;
+        this.total_pages_num = movie.total_pages;
+      });
+  }
+  handleNext(pageNumber: number) {}
 }
