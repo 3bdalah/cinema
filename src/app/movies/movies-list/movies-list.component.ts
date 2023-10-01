@@ -62,9 +62,9 @@ export class MoviesListComponent {
     });
   }
 
-  // Function to handle page number changes
+  
   handlePassNumPage(numPage: number) {
-    this.results.setSearchFlag(false); // Set searchFlag to false when changing pages
+    this.results.setSearchFlag(false);
     this._MoviesService
       .getAllMoviesByPagination(numPage)
       .subscribe((movies) => {

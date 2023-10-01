@@ -1,3 +1,6 @@
+.movie-list{
+  background-color:#F2F6FA;
+}
 .pagination{
     display: flex;
     align-items: center;
