@@ -18,27 +18,42 @@
           <div class="no-results-message">
             No results found.
           </div>
+          
         </ng-container>
       </ng-template>
   
       <ng-template #showAllMovies>
         <!-- Display all movies when there are no search results -->
+        <div>
         <div class="row">
           <div class=" movies  col-lg-3" *ngFor="let movieDataformList of listMovies">
             <app-movie-card [movie]="movieDataformList"></app-movie-card>
           </div> 
       </div>
-      </ng-template>
     </div>
+     <!-- Pagination Links -->
+<nav aria-label="Page navigation example" class="mt-5">
+  <ul class="pagination">
+    <li class="page-item">
+      <button [ngClass]="pageNum <= 1 ? 'stop-find' : ''" class="page-link" [disabled]="pageNum <= 1" (click)="handlePageNum(pageNum - 1)">Previous</button>
+    </li>
+    <li class="page-item" >
+      <a class="page-link" (click)="handlePageNum(pageNum)">{{ pageNum }}</a>
+    </li>
+      <li class="page-item" >
+        <a class="page-link" (click)="handlePageNum(pageNum+1)" *ngIf="pageNum < 500">{{ pageNum +1}}</a>
+      </li>
+      <li class="page-item" >
+        <a class="page-link" (click)="handlePageNum(pageNum+2)" *ngIf="pageNum < 499">{{ pageNum +2}}</a>
+      </li>
+      <li class="page-item">
+        <button class="page-link" [disabled]="pageNum >= 500" [ngClass]="pageNum >= 500 ? 'stop-find' : ''" (click)="handlePageNum(pageNum + 1)">Next</button>
+      </li>
+  </ul>
+</nav>
+
+      </ng-template>
+  </div>
     <!-- refact pagination  -->
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><button [ngClass]="pageNum <=1 ? 'stop-find': ''" class="page-link" [disabled]="pageNum<=1" (click)="handlePageNum(pageNum-1)" href="#">Previous</button></li>
-        <li class="page-item"><a class="page-link active  " >{{pageNum}}</a></li>
-        <li class="page-item"><a class="page-link" >{{pageNum+1}}</a></li>
-        <li class="page-item"><a class="page-link" >{{pageNum+2}}</a></li>
-        <li class="page-item"><button class="page-link"  [ngClass]=" pageNum >= 500 ? 'stop-find' : '' " (click)="handlePageNum(pageNum+1)">Next</button></li>
-      </ul>
-    </nav>
   </div>
 </div>
