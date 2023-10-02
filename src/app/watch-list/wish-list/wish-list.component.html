@@ -31,16 +31,17 @@
         <ng-template #EmptyList>
         <div class="wrapper-empty-cart">
 
-         <div class="row">
-          <div class="col-lg-6 m-auto">
-            
-          <img src="../../../assets/empty-cart.png" alt="empty-cart"/>
-          <div class="route-home center m-auto text-center">
-          <p class="h5">No Movies in watch list</p>
-          <button  class="btn btn-info" (click)="handleBackToHome()"><a >back to home</a></button>
+          <div class="row">
+            <div class="col-lg-6 m-auto text-center">
+              <!-- Center the heart icon and make it bigger -->
+              <i class="fa-regular fa-heart fa-2xl" style="color: #dbd67a; font-size: 300px;"></i>
+              <div class="route-home center m-auto text-center">
+                <p class="h5">No Movies in watch list</p>
+                <button class="btn btn-info" (click)="handleBackToHome()"><a>back to home</a></button>
+              </div>
+            </div>
           </div>
-          </div>
-         </div>
+          
         </div>
         </ng-template>
       </div>

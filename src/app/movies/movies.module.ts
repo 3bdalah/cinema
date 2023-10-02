@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { DurationPipe } from './duration.pipe';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
     MovieCardComponent,
     SearchComponent,
     MovieDetailsComponent,
+    DurationPipe
   ],
 
   imports: [CommonModule, AppRoutingModule, FormsModule, SharedModule],
