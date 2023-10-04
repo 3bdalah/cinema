@@ -10,6 +10,8 @@ import { WishListService } from 'src/app/watch-list/wish-list.service';
 })
 export class WishListComponent {
   moviesListContainer!: MoviesInterface[];
+  addedMovie: boolean = false;
+  removeMovie: boolean = false;
 
   constructor(
     private _WishListService: WishListService,
@@ -22,6 +24,11 @@ export class WishListComponent {
     });
   }
   toggleMovieToWishListFromComp(movieData: MoviesInterface) {
+    this.removeMovie = true;
+    setTimeout(() => {
+      this.removeMovie = false;
+    }, 1000);
+
     this._WishListService.toggleMovieToWishList(movieData);
   }
   handleBackToHome() {

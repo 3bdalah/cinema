@@ -12,3 +12,23 @@
   width: 100%;
   height: 350px;
 }
+
+
+
+.notify{
+  width: 300px;
+  height: 50px;
+  border: 1px solid #F2F6FA;
+  border-radius: 5px;
+  position: fixed;
+  top: 100px;
+  left: 35%;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.remove{
+  background-color: red;
+}

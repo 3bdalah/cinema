@@ -1,3 +1,9 @@
+<div class="notify add" *ngIf="addedMovie;"> the movie Added To WishList</div>
+<div class="notify remove" *ngIf="removeMovie;"> the movie Removed To WishList</div>
+
+
+
+
 <div class=" card-movie">
     
     <div (click)="openDetailes(movie.id)" style="cursor: pointer;">

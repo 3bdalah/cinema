@@ -10,6 +10,7 @@ export class WishListService {
   private wishListMoviesSubject = new BehaviorSubject<MoviesInterface[]>([]);
   private lengthListMoviesSubject = new BehaviorSubject<number>(0);
   private lengthList: number = 0;
+  private isAdded = new BehaviorSubject<boolean>(false);
   constructor() {}
 
   toggleMovieToWishList(movieData: MoviesInterface) {
@@ -19,13 +20,16 @@ export class WishListService {
 
     if (index !== -1) {
       // Movie is already in the wishlist, remove it
+
       this.wishListMovies.splice(index, 1);
+      this.isAdded.next(false);
     } else {
       // Movie is not in the wishlist, add it
+      this.isAdded.next(true);
       this.wishListMovies.push(movieData);
       this.getLengthMoviesAtWishList();
     }
-
+   
     this.wishListMoviesSubject.next([...this.wishListMovies]);
     this.lengthListMoviesSubject.next(this.wishListMovies.length);
     this.getAllMoviesAtWishList();
