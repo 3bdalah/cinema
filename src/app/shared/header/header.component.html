@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <li class="nav-item mx-3">
-                    <a class="nav-link" routerLink="watch-list"><i class="fa-solid fa-heart fa-xl mx-1"></i>{{lengthMoviesWishList}} Watchlist</a>
+                    <a class="nav-link" routerLink="watch-list"><i class="fa-solid fa-heart fa-xl mx-1"></i><span class="icone-wishlist">{{lengthMoviesWishList}}</span> Watchlist</a>
                 </li>
                 <div *ngIf="isLoggedIn; then logged else logOut">
                     <!-- The content below will be displayed if isLoggedIn is true -->
