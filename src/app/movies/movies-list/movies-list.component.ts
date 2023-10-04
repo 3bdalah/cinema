@@ -17,6 +17,7 @@ export class MoviesListComponent {
   myresult!: any;
   pageNum: number = 1;
 
+ 
   constructor(
     private _MoviesService: MoviesService,
     private results: SearchService,
@@ -33,7 +34,7 @@ export class MoviesListComponent {
 
     this.pageNumbers = new Array(15).fill('').map((item, index) => index);
     this.results.setSearchFlag(false);
-    
+
     this.results.getSearchFlag().subscribe((flag) => {
       this.searchFlag = flag;
       if (this.searchFlag) {
@@ -53,10 +54,12 @@ export class MoviesListComponent {
     });
   }
 
-  loadMovies(page_number:number=1) {
-    this._MoviesService.getAllMoviesByPagination(this.pageNum).subscribe((movie) => {
-      this.listMovies = movie.results;
-    });
+  loadMovies(page_number: number = 1) {
+    this._MoviesService
+      .getAllMoviesByPagination(this.pageNum)
+      .subscribe((movie) => {
+        this.listMovies = movie.results;
+      });
   }
 
   handlePageNum(pageNumber: number) {

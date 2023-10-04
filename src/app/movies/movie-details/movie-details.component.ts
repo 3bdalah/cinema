@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { MoviesService } from '../movies.service';
 import { MoviesInterface } from '../movies-interface';
 
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { WishListService } from 'src/app/watch-list/wish-list.service';
-
 
 @Component({
   selector: 'app-movie-details',
@@ -16,6 +14,11 @@ export class MovieDetailsComponent {
   movieAllDetailes!: any;
   moveiId!: number;
   moviesRecommendation!: MoviesInterface[];
+
+  allMoviesWishList: MoviesInterface[] = [];
+  addedMovie: boolean = false;
+  removeMovie: boolean = false;
+
   constructor(
     private fullyDataMovie: MoviesService,
 
@@ -38,8 +41,26 @@ export class MovieDetailsComponent {
         });
     });
 
+    this._WishListService.getAllMoviesAtWishList().subscribe((movies) => {
+      this.allMoviesWishList = movies;
+    });
   }
   handleAddMovieToWishList(movieData: MoviesInterface) {
+    let checkFoundMovie = this.allMoviesWishList.find(
+      (movie) => movie.id == movieData.id
+    );
+    if (checkFoundMovie) {
+      this.removeMovie = true;
+      setTimeout(() => {
+        this.removeMovie = false;
+      }, 1000);
+    } else {
+      this.addedMovie = true;
+      setTimeout(() => {
+        this.addedMovie = false;
+      }, 1000);
+    }
+
     this._WishListService.toggleMovieToWishList(movieData);
   }
 }
